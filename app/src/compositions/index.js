@@ -19,6 +19,7 @@ const data = [
   }
 ];
 
+// 开始获取用户列表
 export function useFetchUsers() {
   const state = reactive({
     users: []
@@ -33,6 +34,7 @@ export function useFetchUsers() {
   };
 };
 
+// 删除用户
 export function useDelUser(state) {
   const removeUser = function (index) {
     state.users = state.users.filter((user, idx) => idx !== index);
@@ -42,6 +44,7 @@ export function useDelUser(state) {
   }
 };
 
+//添加用户
 export function userAddUser (state) {
   const state2 = reactive({
     user: {
@@ -60,6 +63,7 @@ export function userAddUser (state) {
   }
 }
 
+// 搜索用户
 export function useSearchUser(state) {
   const searchName = ref();
   const searchUser = () => {
