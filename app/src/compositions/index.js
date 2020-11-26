@@ -48,7 +48,7 @@ export function userAddUser (state) {
       name: ''
     }
   });
-  const addUser = (name) => {
+  const addUser = () => {
     const user = Object.assign({}, state2.user);
     state.users.push(user);
     state2.user.name = '';
@@ -57,5 +57,21 @@ export function userAddUser (state) {
   return {
     state2,
     addUser
+  }
+}
+
+export function useSearchUser(state) {
+  const searchName = ref();
+  const searchUser = () => {
+    if (searchName.value.trim()) {
+      state.users = state.users.filter(m => m.name == searchName.value);
+    } else {
+      state.users = data;
+    }
+  };
+
+  return {
+    searchName,
+    searchUser
   }
 }

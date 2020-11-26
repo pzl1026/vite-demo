@@ -2,10 +2,10 @@
   <a-row :gutter="16">
     <a-col :span="4">
       <a-input-search
-        v-model:value="value"
+        v-model:value="searchName"
         placeholder="输入name"
         style="width: 200px; height: 50px;"
-        @search="onSearch"
+        @search="searchUser"
         enter-button
       />
     </a-col>
@@ -41,7 +41,7 @@
 
 <script>
 import { Input, Row, Col, List, Avatar} from 'ant-design-vue';
-import { useFetchUsers, useDelUser, userAddUser } from '../compositions';
+import { useFetchUsers, useDelUser, userAddUser, useSearchUser } from '../compositions';
 import {onMounted} from 'vue';
 const AInputSearch = Input.Search;
 const AListItem = List.Item;
@@ -61,7 +61,8 @@ export default {
   setup() {
     const {state, getUsers} = useFetchUsers();
     const {removeUser} = useDelUser(state);
-    const {state2, addUser} =  userAddUser(state);
+    const {state2, addUser} = userAddUser(state);
+    const {searchName, searchUser} = useSearchUser(state);
     onMounted(getUsers);
 
     return {
@@ -69,7 +70,9 @@ export default {
       getUsers,
       removeUser,
       state2,
-      addUser
+      addUser,
+      searchName,
+      searchUser
     }
   }
 }

@@ -6,15 +6,15 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Composition from './components/Composition.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import Composition from './components/Composition.vue'
 import AntTest from './components/AntTest.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    Composition,
+    // HelloWorld,
+    // Composition,
     AntTest
   }
 }
